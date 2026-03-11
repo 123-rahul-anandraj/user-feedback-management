@@ -1,6 +1,6 @@
 package com.example.userfeedback.model;
 
-import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -9,6 +9,6 @@ public class UserResponseDTO {
 	private Long usrId;
 	private String usrname;
 	private String usrEmailId;
-	private List<String> usrFeedback;
+	private Map<String,String> usrFeedback;
 	private String status;
 }
