@@ -126,9 +126,11 @@ public class UserService {
 		UserResponseDTO finalUsrDTO = new UserResponseDTO();
 		String status = "";
 		try {
+			Map<String,String> fdbkMap = new HashMap<>();
 			List<UserFeedbackEntity> usrFeedbackList = feedbackRpo.findByUsrId(usrId);
 			if(!usrFeedbackList.isEmpty()) {
-				finalUsrDTO.setUsrFeedback(usrFeedbackList.stream().map(usrFeedback -> usrFeedback.getFeedbackContent()).toList());	
+				usrFeedbackList.stream().forEach(usrFeedback -> fdbkMap.put(String.valueOf(usrFeedback.getId()), usrFeedback.getFeedbackContent()));
+				finalUsrDTO.setUsrFeedback(fdbkMap);	
 				finalUsrDTO.setUsrId(usrFeedbackList.get(0).getUsrId());
 				finalUsrDTO.setUsrname(usrFeedbackList.get(0).getUserName());
 				status = "Success";
@@ -173,3 +175,4 @@ public class UserService {
 		return finalUsrDTO;
 	}
 }
+
