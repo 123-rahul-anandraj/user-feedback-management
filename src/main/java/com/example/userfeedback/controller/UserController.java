@@ -76,10 +76,11 @@ public class UserController {
 		return usrService.updateUsrFeedback(usrFeedbackDto);
 	}
 	
-	@DeleteMapping("/admin/delete/{feedbackid}")
+	@DeleteMapping("/admin/delete/feedback/{feedbackid}")
 	public void deleteUsrFeedback(@PathVariable("feedbackid") Long feedbackid) {
 		usrService.deleteUsrFeedback(feedbackid);
 	}
 }
+
 
 
