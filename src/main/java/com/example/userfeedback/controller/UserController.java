@@ -62,8 +62,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/usrFeedback/{userid}")
-	public void getUsrFeedback(@PathVariable("userid") Long userid) {
-		usrService.getUsrFeedback(userid);
+	public UserResponseDTO getUsrFeedback(@PathVariable("userid") Long userid) {
+		return usrService.getUsrFeedback(userid);
 	}
 	
 	@PostMapping("/usrFeedback/update")
@@ -81,4 +81,5 @@ public class UserController {
 		usrService.deleteUsrFeedback(feedbackid);
 	}
 }
+
 
